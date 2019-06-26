@@ -40,3 +40,17 @@ func TestPop(t *testing.T) {
 		t.Fatal("in_array failed true")
 	}
 }
+
+func TestCount(t *testing.T) {
+	var array  = Array{"a",1,true}
+
+	if array.Count() != 3 {
+		t.Fatal("pop failed 3")
+	}
+	var array1  = Array{}
+
+	if array1.Count() != 0 {
+		t.Fatal("in_array failed 0")
+	}
+}
+

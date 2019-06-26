@@ -8,12 +8,14 @@ go get github.com/hisheng/phpgo
     
         取值
         php 的 strval() 对应 phpgo.Strval()
+        isset() ---> 待做
         
         
         array
         php的array 数组结构 对应 phpgo.Array
         in_array()   phpgo.Array.In()
         array_pop()  phpgo.Array.Pop()
+        count()      phpgo.Array.Count()
         
         
         

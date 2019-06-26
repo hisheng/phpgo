@@ -32,3 +32,11 @@ func (array *Array) Pop () interface{}{
 
 	return nil
 }
+
+// count
+func (array Array) Count () int{
+	return len(array)
+}
+
+
+
