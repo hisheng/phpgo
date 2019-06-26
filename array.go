@@ -21,3 +21,14 @@ func (array Array) In (data interface{}) bool{
 	}
 	return false
 }
+
+// array_pop
+func (array *Array) Pop () interface{}{
+	if len(*array) > 0{
+		e := (*array)[0]
+		*array = (*array)[1:]
+		return e
+	}
+
+	return nil
+}
