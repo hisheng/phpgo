@@ -1,7 +1,6 @@
 package phpgo
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -46,20 +45,15 @@ func TestPop(t *testing.T) {
 	if array.Pop() != "2" {
 		t.Fatal("pop failed 2")
 	}
-	fmt.Println(array)
 	if array.Pop() != true {
 		t.Fatal("in_array failed true")
 	}
-	fmt.Println(array)
 	if array.Pop() !=  1 {
 		t.Fatal("in_array failed 1")
 	}
-	fmt.Println(array)
 	if array.Pop() != "a" {
 		t.Fatal("in_array failed a")
 	}
-	fmt.Println(array)
-	fmt.Println(array.Pop())
 	if array.Pop() != nil{
 		t.Fatal("in_array failed nil")
 	}
@@ -77,4 +71,22 @@ func TestCount(t *testing.T) {
 		t.Fatal("in_array failed 0")
 	}
 }
+
+func TestPush(t *testing.T) {
+	var array  = Array{"a",1,true}
+	array.Push("aa")
+	if array.Pop() != "aa"{
+		t.Fatal("push failed aa")
+	}
+
+	var array1  = Array{}
+	array1.Push("ss",1)
+	if array1.Pop() != 1 {
+		t.Fatal("push failed 1")
+	}
+	if array1.Pop() != "ss" {
+		t.Fatal("push failed ss")
+	}
+}
+
 
