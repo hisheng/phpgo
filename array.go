@@ -22,14 +22,25 @@ func (array Array) In (data interface{}) bool{
 	return false
 }
 
-// array_pop
-func (array *Array) Pop () interface{}{
+// array_shift
+func (array *Array) Shift () interface{}{
 	if len(*array) > 0{
 		e := (*array)[0]
 		*array = (*array)[1:]
 		return e
 	}
 
+	return nil
+}
+
+// array_shift
+func (array *Array) Pop () interface{}{
+	if len(*array) > 0{
+		last := len(*array) - 1
+		e := (*array)[last]
+		*array = (*array)[:last]
+		return e
+	}
 	return nil
 }
 
