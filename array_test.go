@@ -1,13 +1,31 @@
 package phpgo
 
 import (
+	"fmt"
 	"testing"
 )
 
 
 //目前只测试了 int ，bool，string
 func TestIn(t *testing.T) {
-	var array  = Array{"a",1,true}
+	var array  = Array{"a",1,true,}
+	var arrmap = make(ArrayMap,3)
+	arrmap["name"] = "hisheng"
+	arrmap["age"] = 31
+	arrmap["height"] = 173.5
+	array = append(array,arrmap)
+	fmt.Println(array)
+
+	array = array.Push("sss")
+	fmt.Println(array)
+
+	f := ArrayMap{"girlfriend":"xiaomei"}
+	array = append(array,f)
+	fmt.Println(array)
+
+	array = array.Push(ArrayMap{"dad":"gang"})
+	fmt.Println(array)
+
 	if !array.In("a") {
 		t.Fatal("in_array failed ", array.In("a"))
 	}
@@ -20,6 +38,22 @@ func TestIn(t *testing.T) {
 	if !array.In(true) {
 		t.Fatal("in_array failed true")
 	}
+
+	if !array.In("hisheng") {
+		t.Fatal("hisheng failed true")
+	}
+	if !array.In("xiaomei") {
+		t.Fatal("xiaomei failed true")
+	}
+	if !array.In("gang") {
+		t.Fatal("gang failed true")
+	}
+
+	if !array.In("sss") {
+		t.Fatal("sss failed true")
+	}
+
+
 }
 
 
