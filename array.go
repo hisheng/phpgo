@@ -1,13 +1,15 @@
 package phpgo
 
 import (
+	"encoding/json"
 	"fmt"
 	"reflect"
 )
 
 //对应 php的 array 数组
 type Array []interface{}   //1 列表格式
-type ArrayMap map[interface{}]interface{} //2 map格式
+type ArrayMap map[string]interface{} //2 map格式,暂时只支持 map[string]interface{} ，因为map[interface{}]interface{}会导致JsonEncode困难
+
 
 
 
@@ -74,6 +76,20 @@ func (array *Array) Push(values ...interface{}) Array {
 	}
 	return *array
 }
+
+//json_encode array 变成json
+func (array Array) JsonEncode() string {
+	jsonArray, _ := json.Marshal(array)
+	return string(jsonArray)
+}
+
+//json_decode json 转 array
+func JsonDecode(jsons string) (array Array) {
+	err := json.Unmarshal([]byte(jsons), &array)
+	if err != nil {}
+	return array
+}
+
 
 
 

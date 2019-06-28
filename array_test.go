@@ -1,6 +1,7 @@
 package phpgo
 
 import (
+	"encoding/json"
 	"fmt"
 	"testing"
 )
@@ -14,17 +15,17 @@ func TestIn(t *testing.T) {
 	arrmap["age"] = 31
 	arrmap["height"] = 173.5
 	array = append(array,arrmap)
-	fmt.Println(array)
+	//fmt.Println(array)
 
 	array = array.Push("sss")
-	fmt.Println(array)
+	//fmt.Println(array)
 
 	f := ArrayMap{"girlfriend":"xiaomei"}
 	array = append(array,f)
-	fmt.Println(array)
+	//fmt.Println(array)
 
 	array = array.Push(ArrayMap{"dad":"gang"})
-	fmt.Println(array)
+	//fmt.Println(array)
 
 	if !array.In("a") {
 		t.Fatal("in_array failed ", array.In("a"))
@@ -121,6 +122,17 @@ func TestPush(t *testing.T) {
 	if array1.Pop() != "ss" {
 		t.Fatal("push failed ss")
 	}
+}
+
+func TestJsonEncode(t *testing.T)  {
+	var array  = Array{"a",1,true,ArrayMap{"dad":"gga"}}
+
+	fmt.Println(array)
+	fmt.Println(array.JsonEncode())
+	j, _ := json.Marshal(array)
+	fmt.Println(string(j))
+	fmt.Println(JsonDecode(string(j)))
+	//t.Fatal("test")
 }
 
 
