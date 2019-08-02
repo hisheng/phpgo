@@ -11,6 +11,9 @@ import (
 )
 
 func Strval(data interface{}) (s string) {
+	if data == nil {
+		return ""
+	}
 	v := reflect.ValueOf(data)
 	typ := reflect.TypeOf(data)
 
