@@ -23,7 +23,7 @@ go get github.com/hisheng/phpgo
 
         
         
-        
+        还需要实现 in_array() 直接传一个 []int,[]string,之类的看查找是否在
         
         
         
