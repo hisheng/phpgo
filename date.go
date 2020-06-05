@@ -1,6 +1,8 @@
 package phpgo
 
-import "time"
+import (
+	"time"
+)
 
 const (
 	Y = "2006"
@@ -16,19 +18,19 @@ func Date(format string) string {
 	for _,f := range format{
 		switch string(f) {
 		case "Y":
-			fs = Y
+			fs += Y
 		case "m":
-			fs = m
+			fs += m
 		case "d":
-			fs = d
-		case "h":
-			fs = H
+			fs += d
+		case "H":
+			fs += H
 		case "i":
-			fs = i
+			fs += i
 		case "s":
-			fs = s
+			fs += s
 		default:
-			fs = string(f)
+			fs += string(f)
 		}
 	}
 	return time.Now().Format(fs)
