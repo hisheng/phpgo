@@ -10,6 +10,10 @@ go get github.com/hisheng/phpgo
         php 的 strval() 对应 phpgo.Strval()
         isset() ---> 待做
         
+        时间函数
+        php的 date("Y-m-d H:i:s") 对应 phpgo.Date()
+    
+        
         
         array
         php的array 数组结构 对应 phpgo.Array
